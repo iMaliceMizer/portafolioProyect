@@ -8,7 +8,7 @@ import { ComponenteNavBarComponent } from './componente-nav-bar/componente-nav-b
 @NgModule({
   declarations: [
     AppComponent,
-    ComponenteNavBarComponent
+    ComponenteNavBarComponent,
   ],
   imports: [
     BrowserModule,
