@@ -10,10 +10,8 @@ import { ComponenteFooterComponent } from './componente-footer/componente-footer
   declarations: [
     AppComponent,
     ComponenteNavBarComponent,
-<<<<<<< HEAD
+
     ComponenteFooterComponent
-=======
->>>>>>> a6d038fa271c47675ab3ed5b342c3ba272cb8fe6
   ],
   imports: [
     BrowserModule,
