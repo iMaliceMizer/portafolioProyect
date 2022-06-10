@@ -8,13 +8,19 @@ import { ProductosComponent } from './productos/productos.component';
 import { ApiserviceService } from './apiservice.service';
 import {HttpClientModule} from'@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { MesaComponent } from './mesa/mesa.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarProductosComponent,
-    ProductosComponent
+    ProductosComponent,
+    LoginComponent,
+    SignupComponent,
+    MesaComponent
   ],
   imports: [
     BrowserModule,

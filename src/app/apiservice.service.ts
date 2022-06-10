@@ -12,12 +12,15 @@ export class ApiserviceService {
   //conectar frontend con el backend!
 
   apiUrl = 'http://localhost:3000/producto/';
+  apiUrl1 = 'http://localhost:3000/pedido/';
+  apiUrl2 = 'http://localhost:3000/mesa/:id';
 
   // obtener todos los datos
-
-  getAllData():Observable<any>
+getAllData():Observable<any>
   {
         return this._http.get(`${this.apiUrl}`);
+        return this._http.get(`${this.apiUrl1}`);
+        return this._http.get(`${this.apiUrl2}`);
   }
 
   //agregar datos
@@ -27,6 +30,8 @@ addData(data:any):Observable<any>
 
 
     return this._http.post(`${this.apiUrl}`, data);
+    return this._http.post(`${this.apiUrl1}`, data);
+    return this._http.post(`${this.apiUrl2}`, data);
   }
 
 
@@ -36,11 +41,13 @@ addData(data:any):Observable<any>
   {
     let ids = id;
     return this._http.delete(`${this.apiUrl}/${ids}`)
+    return this._http.delete(`${this.apiUrl1}/${ids}`)
+    return this._http.delete(`${this.apiUrl2}/${ids}`)
   }
 
 
 
-  //actualizar dator
+  //actualizar datos
   updateData(data:any,id:any):Observable<any>
   {
       let ids = id;
@@ -52,11 +59,7 @@ addData(data:any):Observable<any>
   getSingleData(id:any):Observable<any>
   {
     let ids = id;
-
     return this._http.get(`${this.apiUrl} ${ids}`);
   }
-
-
-
 
 }

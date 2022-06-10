@@ -26,7 +26,7 @@ db.connect(err=>{
 })
 
 
-//conseguir todos los datos
+//conseguir todos los datosde producto
 app.get('/producto',(req,res)=>{
     let qr = 'select * from producto';
     db.query(qr,(err,result)=>{
@@ -45,7 +45,26 @@ app.get('/producto',(req,res)=>{
 });
 
 
-//conseguir solo 1 dato
+// conseguir todos los datos de pedido
+app.get('pedido',(req,res)=>{
+  let qr1 = 'select * from pedido';
+  db.query(qr1,(err,result)=>{
+    if(err)
+    {
+      console.log(err,'errs');
+    }
+    if(result.length>0)
+    {
+      res.send({
+        message: 'datos de los pedidos',
+        data: result
+      });
+    }
+  })
+})
+
+
+//conseguir solo 1 dato producto
 app.get('/producto/:id',(req, res)=> {
       let gID = req.params.id;
       let qr = `select * from producto where id = ${gID}`;
@@ -67,8 +86,30 @@ app.get('/producto/:id',(req, res)=> {
     });
 });
 
+//conseguir solo 1 dato pedido
+app.get('/pedido/:id', (req, res)=>{
+      let gID = req.params.id;
+      let qr = `select * from pedido where id = ${gID}`;
+    db.query(qr,(err,result)=>{
+        if(err){console.log(err);}
+        if(result.length)
+        {
+          res.send({
+            message: 'obtener dato',
+            data: result
+          });
+        }
+        else
+        {
+          res.send({
+            message: 'dato no encontrado'
+          });
+        }
+    });
+});
 
-// crear dato
+
+// crear dato producto
 app.post('/producto', (req,res)=>{
         console.log(req.body, 'crea dato');
 
@@ -92,8 +133,31 @@ app.post('/producto', (req,res)=>{
         });
 });
 
+//crear dato pedido
+app.post('/pedido', (req,res)=>{
+        console.log(req.body, 'crea dato');
 
-// Actualizar un dato
+        let hora = req.body.hora;
+        let fecha = req.body.fecha;
+        let tipo = req.body.tipo;
+        let valor = req.body.valor;
+
+        let qr1 = `insert into pedido(hora, fecha, tipo, valor)
+                    values('${hora}',${fecha}','${tipo}','${valor}')`;
+
+
+        console.log(qr, 'qr')
+          db.query(qr,(err,result)=>{
+              if(err){console.log(err)};
+              console.log(result,'result')
+              res.send({
+                 message: 'dato insertado',
+                  });
+        });
+
+})
+
+// Actualizar un dato producto
 app.put('/producto/:id', (req,res)=>{
   console.log(req.body, 'actualiza dato');
 
@@ -118,7 +182,31 @@ app.put('/producto/:id', (req,res)=>{
   });
 });
 
-//borrar un dato
+//actualizar un dato pedido
+app.put('/pedido/:id', (req,res)=>{
+  console.log(req.body, 'actualiza dato');
+
+  let gID = req.params.id;
+
+  let hora = req.body.hora;
+  let fecha = req.body.fecha;
+  let tipo = req.body.tipo;
+  let valor = req.body.valor;
+
+  let qr = `update producto set hora = '${hora}', fecha =' ${fecha}', tipo = '${tipo}',
+              valor = '${valor}'
+              where id = ${gID}`;
+
+  db.query(qr,(err,result)=>{
+          if(err) {console.log(err);}
+
+          res.send({
+              message:'dato actualizado'
+          });
+  });
+});
+
+//borrar un dato producto
 app.delete('/producto/:id', (req,res)=>{
 
           let gID = res.params.id;
@@ -133,6 +221,23 @@ app.delete('/producto/:id', (req,res)=>{
               )
       });
 });
+
+
+// borrar un dato pedido
+app.delete('/pedido/:id', (res,req)=>{
+        let gID = res.params.id;
+        let qr = `delete from pedido where id = ${gID}`;
+      db.query(qr,(err,result)=>{
+          if(err){Console.log(err);}
+
+          res.send(
+        {
+            message: 'dato eliminado'
+        }
+      )
+    });
+});
+
 
 //servidor corriendo
 app.listen(3000,()=> {

@@ -14,22 +14,21 @@ export class ProductosComponent implements OnInit {
   successmsg: any;
 
   ngOnInit(): void {
-    this.getAllData();
+
+    this.service.getAllData().subscribe((res)=>{
+      console.log(res,"res==>");
+        this.readData = res.Data;
+    });
   }
 
-  //borra
+  //borra Id
   deleteID(id:any)
+
     {
       console.log(id, 'deleteid==>');
       this.service.deleteData(id).subscribe((res)=>{
         console.log(res,'deleteres==>');
         this.successmsg = res.message;
-        this.getAllData();
-
-        this.service.getAllData().subscribe((res)=>{
-          console.log(res,"res==>");
-            this.readData = res.data;
-        });
 
       });
     }
@@ -42,6 +41,5 @@ export class ProductosComponent implements OnInit {
         this.readData = res.data;
       });
   }
-
 
 }
