@@ -28,6 +28,7 @@ export class ProductosComponent implements OnInit {
   }
   addtocomanda(item: any){
       this.cartService.addtoCart(item);
+      this.cartService.setProducto(item)
   }
 
 }

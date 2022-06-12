@@ -8,6 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ComandaComponent } from './comanda/comanda.component';
 
 const routes: Routes = [
+  {path:'', redirectTo:'home', pathMatch:'full'},
   {path: 'agregar-productos', component:AgregarProductosComponent},
   {path: 'agregar-productos/:id', component:AgregarProductosComponent},
   {path: 'productos', component:ProductosComponent},

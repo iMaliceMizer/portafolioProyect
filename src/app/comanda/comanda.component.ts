@@ -10,13 +10,26 @@ export class ComandaComponent implements OnInit {
 
   public productos: any = [];
   public grandTotal !: number;
+  cantTotal = 0;
+
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartService.getProductos()
     .subscribe(res=>{
       this.productos = res;
-      this.grandTotal = this.cartService.getTotalPrice();
+      this.productos.forEach((producto:any) =>{
+        this.grandTotal += (producto.cantidad * producto.precio)
+      });
     });
+
   }
+
+
+  removeItem(item:any){
+    this.cartService.removeCartItem(item);
+  }
+    emptycart(){
+      this.cartService.removeAllCart();
+    }
 }
