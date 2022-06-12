@@ -10,8 +10,10 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { MesaComponent } from './mesa/mesa.component';
+import { ComandaComponent } from './comanda/comanda.component';
 import { ComponenteNavBarComponent } from './componente-nav-bar/componente-nav-bar.component';
 import { ComponenteFooterComponent } from './componente-footer/componente-footer.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -21,9 +23,11 @@ import { ComponenteFooterComponent } from './componente-footer/componente-footer
     ProductosComponent,
     LoginComponent,
     SignupComponent,
-    MesaComponent
+    MesaComponent,
+    ComandaComponent,
     ComponenteNavBarComponent,
-    ComponenteFooterComponent
+    ComponenteFooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

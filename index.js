@@ -2,7 +2,9 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const mysql = require ('mysql2');
+
 const { Console } = require('console');
+
 
 const app = express();
 
@@ -26,6 +28,7 @@ db.connect(err=>{
 })
 
 
+
 //conseguir todos los datosde producto
 app.get('/producto',(req,res)=>{
     let qr = 'select * from producto';
@@ -42,6 +45,25 @@ app.get('/producto',(req,res)=>{
         });
       }
     });
+});
+
+//conseguir todos los datos de la comanda:
+
+app.get('/comanda',(req,res)=>{
+  let qr = 'select * from comanda';
+  db.query(qr,(err,result)=>{
+    if(err)
+    {
+      console.log(err,'errs');
+    }
+    if(result.length>0)
+    {
+      res.send({
+        message:'datos de las comandas',
+        data: result
+      });
+    }
+  });
 });
 
 
@@ -84,6 +106,28 @@ app.get('/producto/:id',(req, res)=> {
               });
         }
     });
+});
+
+//conseguir solo 1 dato comanda
+app.get('/comanda/:id',(req, res)=> {
+  let gID = req.params.id;
+  let qr = `select * from comanda where id = ${gID}`;
+db.query(qr,(err,result)=>{
+    if(err){ console.log(err);}
+    if(result.length)
+    {
+          res.send({
+            message: 'obtener dato',
+            data:result
+          });
+    }
+    else
+    {
+          res.send({
+            message: 'dato no encontrado'
+          });
+    }
+});
 });
 
 //conseguir solo 1 dato pedido
@@ -237,6 +281,8 @@ app.delete('/pedido/:id', (res,req)=>{
       )
     });
 });
+
+
 
 
 //servidor corriendo
