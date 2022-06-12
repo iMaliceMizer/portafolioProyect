@@ -99,6 +99,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ionicons/dist/scss/ionicons.scss",
               "src/styles.scss"
             ],
             "scripts": []
