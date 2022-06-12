@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { MesaComponent } from './mesa/mesa.component';
+import { ComandaComponent } from './comanda/comanda.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MesaComponent } from './mesa/mesa.component';
     ProductosComponent,
     LoginComponent,
     SignupComponent,
-    MesaComponent
+    MesaComponent,
+    ComandaComponent
   ],
   imports: [
     BrowserModule,

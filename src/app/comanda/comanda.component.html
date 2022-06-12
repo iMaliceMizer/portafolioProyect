@@ -1,0 +1,24 @@
+<ng-container *ngIf="true">
+  <div class="container">
+    <div class="card-table">
+      <div class="card-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Sr.No</th>
+              <th>Nombre Producto</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of productos; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.valor}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>

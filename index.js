@@ -2,7 +2,9 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const mysql = require ('mysql2');
+
 const { Console } = require('console');
+
 
 const app = express();
 
@@ -24,6 +26,7 @@ db.connect(err=>{
   if (err) {console.log('err');}
   console.log('base de datos conectado...');
 })
+
 
 
 //conseguir todos los datosde producto
@@ -237,6 +240,8 @@ app.delete('/pedido/:id', (res,req)=>{
       )
     });
 });
+
+
 
 
 //servidor corriendo

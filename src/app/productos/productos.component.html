@@ -1,11 +1,6 @@
 <div class="container mt-5">
-
   <!-- mostrar mensaje de exito-->
-  <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{successmsg}}</strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  <table class="table table-bordered">
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -26,13 +21,12 @@
         <td>{{prod.stock}}</td>
         <td>{{prod.categoria}}</td>
         <td>
-          <button class ="btn btn-sm btn-danger" (click)="deleteID(prod.id)">Eliminar</button>
-          &nbsp;
-          <a [routerLink]="['/agregar-productos',prod.id]"  class="btn btn-sm btn-success">Actualizar</a></td>
-
-
-        </tr>
-      <tr>
+          <button routerLink="/comanda" class="btn btn-sm btn-success" (click)= addtocomanda(prod)>Agregar a Comanda</button></td>
+      </tr>
     </tbody>
   </table>
+
+
+
 </div>
+
