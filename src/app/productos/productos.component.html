@@ -1,31 +1,17 @@
-<div class="container mt-5">
-  <!-- mostrar mensaje de exito-->
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Valor</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Stock</th>
-        <th scope="col">Categoría</th>
-        <th scope="col">Editar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor = 'let prod of readData'>
-        <th scope="row">{{prod.id}}</th>
-        <td>{{prod.nombre}}</td>
-        <td>{{prod.valor}}</td>
-        <td>{{prod.descripcion}}</td>
-        <td>{{prod.stock}}</td>
-        <td>{{prod.categoria}}</td>
-        <td>
-          <button routerLink="/comanda" class="btn btn-sm btn-success" (click)= addtocomanda(prod)>Agregar a Comanda</button></td>
-      </tr>
-    </tbody>
-  </table>
-
+<div class="container mt-5" >
+<div class="row row-cols-1 row-cols-md-3 g-4" >
+  <div class="col" *ngFor = 'let prod of readData'>
+    <div class="card h-100" >
+     {{prod.imagen}}
+     
+      <div class="card-body">
+        <h4 class="card-title">{{prod.id}}. {{prod.nombre}}</h4> <h6>{{prod.categoria}}</h6>
+        <h5>{{prod.valor }}</h5>  stock: {{prod.stock}} unidades
+        <p class="card-text">{{prod.descripcion}} </p>
+        <button routerLink="/comanda" class="btn btn-sm btn-success" (click)= addtocomanda(prod)>Agregar a Comanda</button>
+      </div>
+    </div>
+  </div>
 
 
 </div>
