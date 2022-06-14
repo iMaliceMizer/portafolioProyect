@@ -6,9 +6,12 @@ import { LoginComponent } from './login/login.component';
 import { MesasComponent } from './mesas/mesas.component';
 import { SignupComponent } from './signup/signup.component';
 import { ComandaComponent } from './comanda/comanda.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { HomeComponent } from './home/home.component';
+import { StaffComponent } from './staff/staff.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'/home', pathMatch:'full'},
+  {path:'', component:HomeComponent},
   {path: 'agregar-productos', component:AgregarProductosComponent},
   {path: 'agregar-productos/:id', component:AgregarProductosComponent},
   {path: 'productos', component:ProductosComponent},
@@ -17,7 +20,9 @@ const routes: Routes = [
   {path: 'mesas', component:MesasComponent},
   {path: 'mesas/:id', component:MesasComponent},
   {path: 'comanda', component:ComandaComponent},
-  {path: 'comanda/:id', component:ComandaComponent}
+  {path: 'comanda/:id', component:ComandaComponent},
+  {path: 'aboutus', component:AboutusComponent},
+  {path: 'staff', component:StaffComponent}
 
 ];
 

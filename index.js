@@ -28,8 +28,7 @@ db.connect(err=>{
 })
 
 
-
-//conseguir todos los datosde producto
+//conseguir todos los datos de producto
 app.get('/producto',(req,res)=>{
     let qr = 'select * from producto';
     db.query(qr,(err,result)=>{
@@ -48,7 +47,6 @@ app.get('/producto',(req,res)=>{
 });
 
 //conseguir todos los datos de la comanda:
-
 app.get('/comanda',(req,res)=>{
   let qr = 'select * from comanda';
   db.query(qr,(err,result)=>{
@@ -79,6 +77,25 @@ app.get('pedido',(req,res)=>{
     {
       res.send({
         message: 'datos de los pedidos',
+        data: result
+      });
+    }
+  })
+})
+
+
+// Conseguir datos de todos los meseros
+app.get('mesero',(req,res)=>{
+  let qr= 'select * from mesero';
+  db.query(qr,(err,result)=>{
+    if(err)
+    {
+      console.log(err,'errs');
+    }
+    if(result.length>0)
+    {
+      res.send({
+        message: 'datos de los mesero',
         data: result
       });
     }
@@ -152,6 +169,27 @@ app.get('/pedido/:id', (req, res)=>{
     });
 });
 
+// conseguir solo 1 dato de mesero
+app.get('/mesero/:id',(req, res)=> {
+  let gID = req.params.id;
+  let qr = `select * from mesero where id = ${gID}`;
+db.query(qr,(err,result)=>{
+    if(err){ console.log(err);}
+    if(result.length)
+    {
+          res.send({
+            message: 'obtener dato',
+            data:result
+          });
+    }
+    else
+    {
+          res.send({
+            message: 'dato no encontrado'
+          });
+    }
+});
+});
 
 // crear dato producto
 app.post('/producto', (req,res)=>{
@@ -187,7 +225,7 @@ app.post('/pedido', (req,res)=>{
         let tipo = req.body.tipo;
         let valor = req.body.valor;
 
-        let qr1 = `insert into pedido(hora, fecha, tipo, valor)
+        let qr = `insert into pedido(hora, fecha, tipo, valor)
                     values('${hora}',${fecha}','${tipo}','${valor}')`;
 
 
@@ -199,6 +237,34 @@ app.post('/pedido', (req,res)=>{
                  message: 'dato insertado',
                   });
         });
+
+})
+
+// Crear mesero
+app.post('/mesero', (req,res)=>{
+  console.log(req.body, 'crea dato');
+
+  let rut = req.body.rut;
+  let nombre = req.body.nombre;
+  let apaterno = req.body.apaterno;
+  let amaterno = req.body.amaterno;
+  let email = req.body.email;
+  let telefono = req.body.telefono;
+  let direccion = req.body.direccion;
+
+
+  let qr = `insert into mesero(rut, nombre, apaterno, amaterno, email, telefono, direccion)
+              values('${rut}',${nombre}','${apaterno}','${amaterno}','${email}','${telefono}','${direccion}')`;
+
+
+  console.log(qr, 'qr')
+    db.query(qr,(err,result)=>{
+        if(err){console.log(err)};
+        console.log(result,'result')
+        res.send({
+           message: 'dato insertado',
+            });
+  });
 
 })
 
@@ -217,6 +283,35 @@ app.put('/producto/:id', (req,res)=>{
 
   let qr = `update producto set nombre = '${nombre}', imagen= '${imagen}', valor =' ${valor}', descripcion = '${descripcion}',
               stock = '${stock}', categoria = '${categoria}'
+              where id = ${gID}`;
+
+  db.query(qr,(err,result)=>{
+          if(err) {console.log(err);}
+
+          res.send({
+              message:'dato actualizado'
+          });
+  });
+});
+
+
+//actualizar dato mesero
+app.put('/mesero/:id', (req,res)=>{
+  console.log(req.body, 'actualiza dato');
+
+  let gID = req.params.id;
+
+  let rut = req.body.rut;
+  let nombre = req.body.nombre;
+  let apaterno = req.body.apaterno;
+  let amaterno = req.body.amaterno;
+  let email = req.body.email;
+  let telefono = req.body.telefono;
+  let direccion = req.body.direccion;
+
+
+  let qr = `update mesero set nombre = '${nombre}', rut'${rut}', apaterno =' ${apaterno}', amaterno = '${amaterno}',
+  email = '${email}', telefono = '${telefono}', direccion = '${direccion}'
               where id = ${gID}`;
 
   db.query(qr,(err,result)=>{
@@ -268,6 +363,22 @@ app.delete('/producto/:id', (req,res)=>{
       });
 });
 
+//borrar un dato mesero
+app.delete('/mesero/:id', (req,res)=>{
+
+  let gID = res.params.id;
+  let qr = `delete from mesero where id = ${gID}`;
+db.query(qr,(err,result)=>{
+      if(err){Console.log(err);}
+
+      res.send(
+        {
+            message: 'dato eliminado'
+        }
+      )
+});
+});
+
 
 // borrar un dato pedido
 app.delete('/pedido/:id', (res,req)=>{
@@ -283,6 +394,11 @@ app.delete('/pedido/:id', (res,req)=>{
       )
     });
 });
+
+
+
+
+
 
 
 

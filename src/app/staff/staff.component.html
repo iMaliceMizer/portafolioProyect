@@ -1,0 +1,14 @@
+<div class="container mt-5">
+    <h3>Conoce al Staff</h3>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" >
+        <div class="col" *ngFor = 'let mesero of readData'>
+          <div class="card h-100" >
+            <div class="card-body">
+              <h4 class="card-title">{{mesero.id}}. {{mesero.nombre}} {{mesero.apaterno}} {{mesero.amaterno</h4>
+              <h5>Email:{{mesero.email }} Telefono: {{mesero.telefono}}</h5>  
+              <p class="card-text">Amable y atento</p>
+            </div>
+          </div>
+        </div>
+</div>
