@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+<<<<<<< HEAD
     "@nativescript/core": "^8.2.4",
     "angular2-jwt": "^0.2.3",
     "body-parser": "^1.20.0",
@@ -28,6 +29,14 @@
     "express": "^4.18.1",
     "file-saver": "^2.0.5",
     "firebase": "^9.8.3",
+=======
+    "@fortawesome/angular-fontawesome": "^0.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "ionicons": "^6.0.2",
+>>>>>>> 3968f672c34bd577a0782e7898fbb3d834c1b5e8
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
     "promise-mysql": "^5.2.0",

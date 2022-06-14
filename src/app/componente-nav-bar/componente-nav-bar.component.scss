@@ -1,51 +1,77 @@
-nav {
-    padding: 0 50px;
-    width: 100%;
-}
-.flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.navbar-one {
-    background-color: #777;
-    color: white;
-    height: 40px;
-    cursor: pointer;
-}
-.left > div + div {
-    margin-left: 40px;
-}
-.right > div {
-    margin-left: 40px;
-}
-.left > div:hover,
-.right > div:hover{
-    color: rgb(105, 105, 105);
-    transition: all 0.5s;
-}
-span {
-    margin-left: 5px;
-}
-.navbar-second {
-    background-color: black;
-    height: 70px;
-}
-.logo {
+.navbar-dark .navbar-brand, .navbar-dark .navbar-nav .nav-link, .footer-dark h3, .copyright, .card-body a, .title h1, .title p {
     text-transform: uppercase;
-    font-size: 24px;
-    cursor: pointer;
-    color: #bb0303;
-}
-li {
-    list-style: none;
-}
-a {
-    text-decoration: none;
-    text-transform: capitalize;
-    font-size: 16px;
-    margin-left: 30px;
-    color: white;
-    font-weight: 400;
-}
-
+  }
+  
+  .navbar-dark {
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-transition: background 0.7s ease-out;
+    transition: background 0.7s ease-out;
+    background: transparent !important;
+    position: absolute;
+    z-index: 1030;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .navbar-dark .navbar-brand {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+  }
+  
+  .navbar-dark .navbar-nav .active > .nav-link {
+    color: #fff;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.active {
+    color: #fff;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.show {
+    color: #fff;
+  }
+  
+  .navbar-light .navbar-nav .show > .nav-link {
+    color: #fff;
+  }
+  
+  .navbar-light .navbar-nav .nav-link:focus {
+    color: #fff;
+  }
+  
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #fff;
+  }
+  
+  .navbar-toggler {
+    background: #fff;
+    padding: 1px 5px;
+    font-size: 18px;
+    line-height: 0.3;
+  }
+  
+  .nav-link {
+    padding: .2rem 1rem;
+  }
+  
+  .nav-link:focus {
+    color: #fff;
+  }
+  
+  .nav-link.active {
+    color: #fff;
+  }
+  
+  .navbar-dark .navbar-brand, .navbar-dark .navbar-nav .nav-link, .footer-dark h3, .copyright, .card-body a, .title h1, .title p {
+    text-transform: uppercase;
+  }
+  
