@@ -1,39 +1,36 @@
-<div class="container mt-5">
-<h1>Registro</h1>
-    <form class="example-form">
-  
-    <table class="example-full-width" cellspacing="0"><tr>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Nombre</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Apellidos</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-    </tr></table>
-    <br>
-    <p>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Dirección</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St"></textarea>
-      </mat-form-field>
-    </p>
-  
-    <table class="example-full-width" cellspacing="0"><tr>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Ciudad</mat-label>
-        <input matInput placeholder="Ex. Vicatura">
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Región</mat-label>
-        <input matInput placeholder="Ex. Metropolitana">
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Código Postal</mat-label>
-        <input matInput #postalCode maxlength="5" placeholder="Ex. 94105">
-        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-      </mat-form-field></td>
-    </tr></table>
-  </form>
-  </div>
+<section class="order" id="order">	
+  <div class="container">
+      <h1 class="title-c"> Para registrarte y obtener tus credenciales, completa el siguiente formulario </h1>
+        <form action="">
+        <div class="inputBox">
+          <div class="input">
+            <span>Ingresa tu nombre *</span>
+            <input type="text" placeholder="EJ: Gardenia">
+          </div>
+          <div class="input">
+            <span>Apellidos *</span>
+            <input type="text" placeholder="EJ: Arévalo Manque">
+          </div>
+        </div>
+        <div class="inputBox">
+          <div class="input">
+            <span>Dirección *</span>
+            <input type="text" placeholder="EJ: 100 Main St">
+          </div>
+          <div class="input">
+            <span>Comuna *</span>
+            <input type="text" placeholder="EJ: Providencia">
+          </div>
+        </div>
+        <div class="inputBox">
+          <div class="input">
+            <span>Región *</span>
+            <input type="text" placeholder="EJ: Metropolitana">
+          </div>
+          <div class="input">
+            <span>Código Postal *</span>
+            <input type="number" placeholder="EJ: 94105">
+          </div>
+        </div>
+        <input type="submit" value="¡Registrate!" class="btn">
+    </form>

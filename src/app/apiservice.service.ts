@@ -16,13 +16,16 @@ export class ApiserviceService {
   //conectar frontend con el backend!
 
   apiUrl = 'http://localhost:3000/producto/';
+  apiUrl1 = 'http://localhost:3001/mesero/';
 
 
-  // obtener todos los datos
+  // obtener todos los datos producto
 getAllData():Observable<any>
   {
         return this._http.get(`${this.apiUrl}`);
+        return this._http.get(`${this.apiUrl1}`);
   }
+
 
   // Conseguir img
   getImage(id:any): Observable<any>

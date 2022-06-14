@@ -23,8 +23,6 @@ export class ComandaComponent implements OnInit {
 
   }
 
-
-
   removeItem(item:any){
     this.cartService.removeCartItem(item);
   }
