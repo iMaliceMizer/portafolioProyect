@@ -15,15 +15,15 @@
             <tr *ngFor="let item of productos; let i = index">
               <td>{{i+1}}</td>
               <td>{{item.nombre}}</td>
-              <td>{{item.stock-1}}</td>
-              <td>{{item.valor}}</td>
+              <td>1</td>
+              <td>{{item.valor | currency}}</td>
               <td>
                 <button  (click)="removeItem(item)" class="btn btn-danger">Eliminar</button>
               </td>
             </tr>
             <tr>
-              <td colspan="3"></td>
-              <td><strong > Valor Total: ${{ grandTotal}} </strong></td>
+              <td colspan="3" ></td>
+              <td><strong *ngFor="let item of productos; let i = index"> Valor Total: {{ item.valor | currency}} </strong></td>
               <td><button (click)="emptycart()" class="btn btn-danger">Vaciar Lista</button></td>
               <td><button routerLink="/productos" class="btn btn-primary">Agregar más</button></td>
             </tr>

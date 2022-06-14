@@ -158,13 +158,14 @@ app.post('/producto', (req,res)=>{
         console.log(req.body, 'crea dato');
 
         let nombre = req.body.nombre;
+        let imagen = req.body.imagen;
         let valor = req.body.valor;
         let descripcion = req.body.descripcion;
         let stock = req.body.stock;
         let categoria = req.body.categoria;
 
-        let qr = `insert into producto(nombre, valor, descripcion, stock, categoria)
-                    values('${nombre}','${valor}','${descripcion}',
+        let qr = `insert into producto(nombre, imagen, valor, descripcion, stock, categoria)
+                    values('${nombre}','${imagen}','${valor}','${descripcion}',
                     '${stock}','${categoria}')`;
 
         console.log(qr, 'qr')
@@ -208,12 +209,13 @@ app.put('/producto/:id', (req,res)=>{
   let gID = req.params.id;
 
   let nombre = req.body.nombre;
+  let imagen = req.body.imagen;
   let valor = req.body.valor;
   let descripcion = req.body.descripcion;
   let stock = req.body.stock;
   let categoria = req.body.categoria;
 
-  let qr = `update producto set nombre = '${nombre}', valor =' ${valor}', descripcion = '${descripcion}',
+  let qr = `update producto set nombre = '${nombre}', imagen= '${imagen}', valor =' ${valor}', descripcion = '${descripcion}',
               stock = '${stock}', categoria = '${categoria}'
               where id = ${gID}`;
 

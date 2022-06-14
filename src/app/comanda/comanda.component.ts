@@ -10,7 +10,6 @@ export class ComandaComponent implements OnInit {
 
   public productos: any = [];
   public grandTotal !: number;
-  cantTotal = 0;
 
   constructor(private cartService: CartService) { }
 
@@ -18,12 +17,12 @@ export class ComandaComponent implements OnInit {
     this.cartService.getProductos()
     .subscribe(res=>{
       this.productos = res;
-      this.productos.forEach((producto:any) =>{
-        this.grandTotal += (producto.cantidad * producto.precio)
-      });
     });
 
+    //calular total
+
   }
+
 
 
   removeItem(item:any){

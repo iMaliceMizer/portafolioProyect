@@ -2,11 +2,9 @@
 <div class="row row-cols-1 row-cols-md-3 g-4" >
   <div class="col" *ngFor = 'let prod of readData'>
     <div class="card h-100" >
-     {{prod.imagen}}
-     
       <div class="card-body">
         <h4 class="card-title">{{prod.id}}. {{prod.nombre}}</h4> <h6>{{prod.categoria}}</h6>
-        <h5>{{prod.valor }}</h5>  stock: {{prod.stock}} unidades
+        <h5>${{prod.valor }}</h5>  stock: {{prod.stock}} unidades
         <p class="card-text">{{prod.descripcion}} </p>
         <button routerLink="/comanda" class="btn btn-sm btn-success" (click)= addtocomanda(prod)>Agregar a Comanda</button>
       </div>

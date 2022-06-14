@@ -1,1 +1,39 @@
-<router-outlet></router-outlet>
+<div class="container mt-5">
+<h1>Registro</h1>
+    <form class="example-form">
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Apellidos</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+    </tr></table>
+    <br>
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Dirección</mat-label>
+        <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+      </mat-form-field>
+    </p>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ciudad</mat-label>
+        <input matInput placeholder="Ex. Vicatura">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Región</mat-label>
+        <input matInput placeholder="Ex. Metropolitana">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Código Postal</mat-label>
+        <input matInput #postalCode maxlength="5" placeholder="Ex. 94105">
+        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+      </mat-form-field></td>
+    </tr></table>
+  </form>
+  </div>

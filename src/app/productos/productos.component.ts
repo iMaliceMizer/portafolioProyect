@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ApiserviceService} from '../apiservice.service';
 import { CartService } from '../service/cart.service';
 import { DomSanitizer } from '@angular/platform-browser';
-
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -10,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ProductosComponent implements OnInit {
 
-  constructor(private sanitizer: DomSanitizer, private service: ApiserviceService, private cartService : CartService) { }
+  constructor( private sanitizer: DomSanitizer, private service: ApiserviceService, private cartService : CartService) { }
 
   readData: any;
   successmsg:any;
@@ -27,12 +26,15 @@ export class ProductosComponent implements OnInit {
         });
       });
 
-
   }
   addtocomanda(item: any){
       this.cartService.addtoCart(item);
       this.cartService.setProducto(item)
   }
+
+  //conseguir img
+
+
 
 
 }
