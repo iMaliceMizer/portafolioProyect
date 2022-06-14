@@ -18,6 +18,8 @@ import { GetImagePipe } from './productos/get-image.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
+import { CartComponent } from './cart/cart.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { RouterModule } from '@angular/router';
     GetImagePipe,
     ComponenteNavBarComponent,
     ComponenteFooterComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
