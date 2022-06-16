@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiserviceService} from '../apiservice.service';
+import { MeseroService } from '../service/mesero.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -9,14 +10,14 @@ import { ApiserviceService} from '../apiservice.service';
 })
 export class StaffComponent implements OnInit {
 
-  constructor( private service: ApiserviceService) { }
+  constructor( private meseroService: MeseroService) { }
 
   readData: any;
 
   ngOnInit(): void {
-    this.service.getAllData().subscribe((res)=>{
+    this.meseroService.getAllData().subscribe((res)=>{
       console.log(res,"res==>");
-      ///NO LO BORRRES JESUSCRISTO
+
       this.readData = res.data;
     });
   }

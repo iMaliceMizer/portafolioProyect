@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { MenuComponent } from './menu/menu.component';
+import { StaffComponent } from './staff/staff.component';
 
 
 
@@ -37,13 +38,14 @@ import { MenuComponent } from './menu/menu.component';
     ComponenteNavBarComponent,
     ComponenteFooterComponent,
     AboutusComponent,
-    MesasComponent,
     GetImagePipe,
     ComponenteNavBarComponent,
     ComponenteFooterComponent,
     HomeComponent,
     CartComponent,
     MenuComponent,
+    MesasComponent,
+    StaffComponent
   ],
   imports: [
     BrowserModule,

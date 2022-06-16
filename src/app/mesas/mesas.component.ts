@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MesaService } from '../service/mesa.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import {ComandaserviceService} from '../service/comandaservice.service';
+import {RouterModule} from '@angular/router';
+
 
 @Component({
   selector: 'app-mesas',
@@ -15,13 +17,17 @@ export class MesasComponent implements OnInit {
 
   readData: any;
   getparamid: any;
-
+  public mesas: any = [];
 
   ngOnInit(): void {
     this.mesaservice.getAllData().subscribe((res)=>{
       console.log(res,"res==>");
       ///NO LO BORRRES JESUSCRISTO
       this.readData = res.data;
+      this.mesaservice.getSingleData(this.mesas).subscribe(res=>{
+        console.log(res, 'res==>');
+        
+      });
   });
 }
  

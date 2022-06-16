@@ -5,21 +5,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class StaffService {
-
+export class MeseroService {
 
   constructor(private _http:HttpClient) { }
-
   //conectar frontend con el backend!
-
   apiUrl = 'http://localhost:3000/mesero/';
-
   //Conseguir datos de todos los meseros
   getAllData():Observable<any>
   {
         return this._http.get(`${this.apiUrl}`);
   }
-
 
   //agregar datos
   addData(data:any):Observable<any>

@@ -106,6 +106,21 @@ app.post('/mesa', (req, res) => {
   });
 });
 
+// Actualizar mesa
+app.put('/mesa/:id', (req,res)=>{
+  console.log(req.body, 'actualiza dato');
+
+  let gID = req.params.id;
+
+  db.query(qr,(err,result)=>{
+          if(err) {console.log(err);}
+
+          res.send({
+              message:'dato actualizado'
+          });
+  });
+});
+
 // Conseguir comanda
 app.get('/comanda', (req, res) => {
   let qr = 'select * from comanda;'
@@ -156,6 +171,22 @@ app.put('/comanda/:id', (req,res)=>{
   });
 });
 
+
+// Conseguir todos los datos de los meseros
+app.get('/mesero', (req, res) => {
+  let qr = 'select * from mesero;'
+  db.query(qr, (err, result) => {
+    if (err) {
+      console.log(err, 'errs');
+    }
+    if (result.length > 0) {
+      res.send({
+        message: 'datos de las meseros',
+        data: result
+      });
+    }
+  });
+});
 
 
 

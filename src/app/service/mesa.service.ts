@@ -34,4 +34,12 @@ export class MesaService {
     return this.productoList.asObservable();
 
   }
+
+  //conseguir un solo dato
+  getSingleData(id:any):Observable<any>
+  {
+    let ids = id;
+    return this._http.get(`${this.apiUrlmesa} ${ids}`);
+  }
+  
 }

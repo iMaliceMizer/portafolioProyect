@@ -1,14 +1,17 @@
 <div class="container mt-5">
-    <h3>Conoce al Staff</h3>
+  <br /><br />
+  <h3> Conoce tu Staff</h3>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4" >
-        <div class="col" *ngFor = 'let mesero of readData'>
-          <div class="card h-100" >
-            <div class="card-body">
-              <h4 class="card-title">{{mesero.id}}. {{mesero.nombre}} {{mesero.apaterno}} {{mesero.amaterno</h4>
-              <h5>Email:{{mesero.email }} Telefono: {{mesero.telefono}}</h5>  
-              <p class="card-text">Amable y atento</p>
-            </div>
-          </div>
-        </div>
+
+  <div class="card-deck">
+    <div class="card" *ngFor='let mesero of readData'>
+      <img class="card-img-top" src="../../assets/staff/meseros/{{mesero.mesero_id}}.jpg" alt="Card image cap"  style="width: 50%; height: 40%">
+      <div class="card-body">
+        <h5 class="card-title">{{mesero.mesero_nombre}} {{mesero.apaterno}} {{mesero.amaterno}}</h5>
+        <p class="card-text"><small class="text-muted">Mesero</small></p>
+        <p class="card-text">{{mesero.descripcion}}</p>
+        <p class="card-text"><small class="text-muted">Contacto: <br/> Telefono: +{{mesero.telefono}} <br/> email: {{mesero.email}}</small></p>
+      </div>
+    </div>
+
 </div>
