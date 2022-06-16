@@ -17,7 +17,10 @@ import { MesasComponent } from './mesas/mesas.component';
 import { GetImagePipe } from './productos/get-image.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { StaffComponent } from './staff/staff.component';
+import { RouterModule } from '@angular/router';
+import { CartComponent } from './cart/cart.component';
+import { MenuComponent } from './menu/menu.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { StaffComponent } from './staff/staff.component';
     ComponenteNavBarComponent,
     ComponenteFooterComponent,
     HomeComponent,
-    StaffComponent
+    CartComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import { StaffComponent } from './staff/staff.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule
   ],
 
   providers: [ApiserviceService],

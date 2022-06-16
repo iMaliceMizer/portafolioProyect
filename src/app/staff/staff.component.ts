@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StaffService } from '../staff.service';
+import { ApiserviceService} from '../apiservice.service';
 
 
 @Component({
@@ -9,15 +9,15 @@ import { StaffService } from '../staff.service';
 })
 export class StaffComponent implements OnInit {
 
-  constructor( private staffservice:  StaffService) { }
+  constructor( private service: ApiserviceService) { }
 
   readData: any;
 
   ngOnInit(): void {
-    this.staffservice.getAllData().subscribe((res)=>{
+    this.service.getAllData().subscribe((res)=>{
       console.log(res,"res==>");
-      //NO LO BORRRES JESUSCRISTO
-     this.readData = res.data;
+      ///NO LO BORRRES JESUSCRISTO
+      this.readData = res.data;
     });
   }
 

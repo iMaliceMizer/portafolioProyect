@@ -1,11 +1,22 @@
 <div class="container mt-5">
-
   <h3>Mesas</h3>
- 
-    <div class="card h-100" >
-      <div class="card-body">       
-      <button class="btn btn-success" (click)=addProduct() >Agregar productos</button>
+  <h6>¿Desea agregar una mesa?</h6>&nbsp;
+  
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col" *ngFor='let mesa of readData'>
+
+      <div class="card h-100">
+        <h4 class="card-title">No. Mesa {{ mesa.mesa_id}}</h4>
+        <p>This card indeterminates progress bar.</p>
+        <p> 
+          <button routerLink="/comanda/{{mesa.comanda_id}}" class="btn btn-sm btn-success">Iniciar Pedido</button>
+          &nbsp;
+          <button class="btn btn-sm btn-primary">Recepción de Pago</button>
+        </p>
+
+
+      </div>
     </div>
   </div>
 </div>
-  

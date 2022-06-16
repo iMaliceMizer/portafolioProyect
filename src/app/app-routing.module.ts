@@ -1,3 +1,4 @@
+import { MenuComponent } from './menu/menu.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AgregarProductosComponent } from './agregar-productos/agregar-productos.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'comanda', component:ComandaComponent},
   {path: 'comanda/:id', component:ComandaComponent},
   {path: 'aboutus', component:AboutusComponent},
-  {path: 'staff', component:StaffComponent}
+  {path: 'staff', component:StaffComponent},
+  {path: 'menu', component:MenuComponent}
 
 ];
 

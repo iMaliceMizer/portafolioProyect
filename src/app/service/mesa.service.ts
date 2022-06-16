@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiserviceService } from '../apiservice.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable} from 'rxjs';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+
 
 
 @Injectable({
@@ -8,10 +10,25 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MesaService {
 
-  constructor(private service: ApiserviceService) { }
+  constructor(private _http:HttpClient, private service: ApiserviceService) { }
+
+  apiUrlmesa = 'http://localhost:3000/mesa/';
+
 
   publicMesaList:  any = [];
   public productoList = new BehaviorSubject<any>([]);
+
+  getAllData():Observable<any>
+  {
+        return this._http.get(`${this.apiUrlmesa}`);
+  }
+
+
+  addMesa(data:any){
+    console.log(data, 'createdapi=>');
+    return this._http.post(`${this.apiUrlmesa}`, data);
+
+  }
 
   getProductos(){
     return this.productoList.asObservable();

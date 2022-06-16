@@ -3,7 +3,7 @@
   <div class="container">
     <div class="card-table">
       <div class="card-product">
-        <table class="table table-responsive">
+        <table class="table table-light table-responsive table-hover">
           <thead>
             <tr>
               <th>Sr.No</th>
@@ -24,7 +24,7 @@
             </tr>
             <tr>
               <td colspan="3" ></td>
-              <td><strong *ngFor="let item of productos; let i = index"> Valor Total: {{ item.valor | currency}} </strong></td>
+              <td><strong *ngFor="let item of productos; let i = index"> Valor Total: {{grandTotal}} </strong></td>
               <td><button (click)="emptycart()" class="btn btn-danger">Vaciar Lista</button></td>
               <td><button routerLink="/productos" class="btn btn-primary">Agregar más</button></td>
             </tr>
@@ -34,12 +34,14 @@
     </div>
   </div>
 </ng-container>
+
 <ng-container *ngIf="productos.length ==0">
   <div class="container">
     <div class="card">
       <h5 class="card-title">Comanda</h5>
     </div>
     <div class="center">
+      <img src="../../assets/img/sinpedidos.png">
       <h4>¡La Comanda esta vacía!</h4>
       <h6>Agregue productos ahora</h6>
       <button routerLink="/productos" class="btn btn-primary">Agregar</button>

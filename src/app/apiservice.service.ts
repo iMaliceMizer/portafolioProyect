@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -9,11 +9,15 @@ import { Observable } from 'rxjs';
 export class ApiserviceService {
 
 
-  constructor(private _http:HttpClient) { }
+
+  constructor(private _http:HttpClient
+    ) { }
 
   //conectar frontend con el backend!
 
   apiUrl = 'http://localhost:3000/producto/';
+  apiUrl1 = 'http://localhost:3001/mesero/';
+
 
   // obtener todos los datos producto
 getAllData():Observable<any>
@@ -21,7 +25,6 @@ getAllData():Observable<any>
         return this._http.get(`${this.apiUrl}`);
   }
 
- 
 
   // Conseguir img
   getImage(id:any): Observable<any>

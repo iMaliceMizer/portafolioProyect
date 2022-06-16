@@ -1,11 +1,17 @@
-<div class="container mt-5">
-  <h1>Inicio</h1>
-  <form [formGroup]="userForm" (ngSubmit)="userSubmit()">
-    <div class="col-lg-4 mt-2">
-      <input type="text" class="form-control" formControlName="email" placeholder="Ingrese su email">
+<div class="login-container">
+  <div class="login-info-container">
+    <h1 class="title">Inicia sesión</h1>
+    <div class="social-login">
     </div>
-    <div class="col-lg-4 mt-2">
-      <input type="password" class="form-control" placeholder ="Ingresa contraseña">
-    </div>
-  </form>
+    <form class="inputs-container">
+        <input class="input" type="text" placeholder="Nombre de usuario">
+        <input class="input" type="text" placeholder="Contraseña">
+        <br>
+        <p>Olvidaste tu contraseña?<span class="span"> Click aqui</span></p>
+        <p>No tienes tus credenciales? <span class="span"> Registrate aqui</span></p>
+        <button class="btn">Inicia sesión</button>
+
+    </form>
+  </div>
+    <img class="image-container" src="../../assets/login.jpg" alt="">
 </div>

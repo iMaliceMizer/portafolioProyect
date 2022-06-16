@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MesaService } from '../service/mesa.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import {ComandaserviceService} from '../service/comandaservice.service';
 
 @Component({
   selector: 'app-mesas',
@@ -8,16 +11,32 @@ import { MesaService } from '../service/mesa.service';
 })
 export class MesasComponent implements OnInit {
 
-  constructor(private mesaservice: MesaService) { }
+  constructor(private comandaservice: ComandaserviceService,private mesaservice: MesaService, private router:ActivatedRoute) { }
+
+  readData: any;
+  getparamid: any;
+
 
   ngOnInit(): void {
-  }
+    this.mesaservice.getAllData().subscribe((res)=>{
+      console.log(res,"res==>");
+      ///NO LO BORRRES JESUSCRISTO
+      this.readData = res.data;
+  });
+}
+ 
+mesaForm = new FormGroup({
+  'id': new FormControl()
+});
 
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
 
-  addProduct(){
-    this.mesaservice.getProductos();
-  }
+AgregarMesa(mesa: any){
+  this.mesaservice.addMesa(mesa);
+  this.comandaservice.addData(this.mesaForm.value).subscribe((res)=>{
+    this.mesaForm.reset();
+  })
+}
+
+
+
 }
