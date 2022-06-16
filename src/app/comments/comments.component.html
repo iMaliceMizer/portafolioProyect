@@ -1,8 +1,9 @@
+<div class="container">
 <div class="comments">
-    <h3 class="comments-title">Comments</h3>
-    <div class="comment-form-title">Write comment</div>
+    <h3 class="comments-title">Sección de comentarios anonimos</h3>
+    <div class="comment-form-title">Escribenos un comentario</div>
     <comment-form
-      submitLabel="Write"
+      submitLabel="Escribenos un comentario"
       (handleSubmit)="addComment({ text: $event, parentId: null })"
     >
     </comment-form>
@@ -21,3 +22,4 @@
       </comment>
     </div>
   </div>
+</div>

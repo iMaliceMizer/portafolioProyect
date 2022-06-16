@@ -23,19 +23,24 @@ html, body {
 
   .comments {
     margin-top: 20px;
+    padding-top: 10rem;
   }
   
   .comments-title {
     font-size: 30px;
     margin-bottom: 20px;
+    color: #fff;
   }
   
   .comments-container {
     margin-top: 40px;
+    padding: 2rem;
+    background: #6b6666c2;
   }
   
   .comment-form-title {
     font-size: 22px;
+    color: #fff;
   }
   
   .comment-form-textarea {
@@ -43,20 +48,20 @@ html, body {
     height: 80px;
     margin-bottom: 8px;
     margin-top: 8px;
-    border: 1px solid rgb(107, 114, 12);
+    border: 1px solid #b7b047;
   }
   
   .comment-form-button {
     font-size: 16px;
     padding: 8px 16px;
-    background: rgb(59, 130, 246);
+    background: #b7b047;
     border-radius: 8px;
     color: white;
   }
   
   .comment-form-button:hover:enabled {
     cursor: pointer;
-    background: rgb(37, 99, 235);
+    background: #b7b047;
   }
   
   .comment-form-button:disabled {
