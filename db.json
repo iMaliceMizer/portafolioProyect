@@ -15,6 +15,14 @@
       "userId": "1",
       "username": "John",
       "id": 2
+    },
+    {
+      "body": "Buenas noches! \nDebo confesar que no le tenia tantas expectativas al restaurant, pero lograron deleitar mi paladar. Muy buena atención y la comida de otro mundo.\nLo recomendare a todos mis cercanos. \nMuchas gracias :) y éxito en todo!",
+      "parentId": null,
+      "createdAt": "2022-06-16T20:53:43.472Z",
+      "userId": "1",
+      "username": "John",
+      "id": 3
     }
   ]
 }
