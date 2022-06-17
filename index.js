@@ -227,6 +227,7 @@ app.post('/user', (req, res) => {
   });
 });
 
+//Conseguir productos alcoholicos
 app.get('/productosalcoholicos', (req, res) => {
   let qr = 'select * from productosalcoholicos';
   db.query(qr, (err, result) => {
@@ -235,13 +236,14 @@ app.get('/productosalcoholicos', (req, res) => {
     }
     if (result.length > 0) {
       res.send({
-        message: 'datos de los productos',
+        message: 'datos de los productosalcoholicos',
         data: result
       });
     }
   });
 });
 
+//Conseguir productos alcoholicos
 app.get('/productosbebestibles', (req, res) => {
   let qr = 'select * from productosbebestibles';
   db.query(qr, (err, result) => {
@@ -250,27 +252,13 @@ app.get('/productosbebestibles', (req, res) => {
     }
     if (result.length > 0) {
       res.send({
-        message: 'datos de los productos',
+        message: 'datos de los productosbebestibles',
         data: result
       });
     }
   });
 });
 
-app.get('/productoscomestibles', (req, res) => {
-  let qr = 'select * from productoscomestibles';
-  db.query(qr, (err, result) => {
-    if (err) {
-      console.log(err, 'errs');
-    }
-    if (result.length > 0) {
-      res.send({
-        message: 'datos de los productos',
-        data: result
-      });
-    }
-  });
-});
 
 //servidor corriendo
 app.listen(3000, () => {
