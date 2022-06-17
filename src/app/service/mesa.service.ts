@@ -12,7 +12,7 @@ export class MesaService {
 
   constructor(private _http:HttpClient, private service: ApiserviceService) { }
 
-  apiUrlmesa = 'http://localhost:3000/mesa/';
+  apiUrlmesa = 'http://localhost:8000/mesa/';
 
 
   publicMesaList:  any = [];

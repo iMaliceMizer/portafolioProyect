@@ -11,7 +11,7 @@ export class menuBService {
   constructor(private _http:HttpClient) { }
 
 
-  apiUrl = 'http://localhost:3000/productosbebestibles/';
+  apiUrl = 'http://localhost:8000/productosbebestibles/';
 
 
 

@@ -15,8 +15,7 @@ export class ApiserviceService {
 
   //conectar frontend con el backend!
 
-  apiUrl = 'http://localhost:3000/producto/';
-  apiUrl1 = 'http://localhost:3001/mesero/';
+  apiUrl = 'http://localhost:8000/producto/';
 
 
   // obtener todos los datos producto

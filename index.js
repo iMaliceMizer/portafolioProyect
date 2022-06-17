@@ -172,16 +172,16 @@ app.put('/comanda/:id', (req,res)=>{
 });
 
 
-// Conseguir todos los datos de los meseros
-app.get('/mesero', (req, res) => {
-  let qr = 'select * from mesero;'
+// Conseguir todos los datos del staff
+app.get('/staff', (req, res) => {
+  let qr = 'select * from staff;'
   db.query(qr, (err, result) => {
     if (err) {
       console.log(err, 'errs');
     }
     if (result.length > 0) {
       res.send({
-        message: 'datos de las meseros',
+        message: 'datos del staff',
         data: result
       });
     }
@@ -261,7 +261,7 @@ app.get('/productosbebestibles', (req, res) => {
 
 
 //servidor corriendo
-app.listen(3000, () => {
+app.listen(8000, () => {
   console.log('server running...');
 });
 

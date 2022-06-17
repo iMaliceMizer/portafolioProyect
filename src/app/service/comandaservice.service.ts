@@ -11,7 +11,7 @@ export class ComandaserviceService {
   constructor(private _http:HttpClient) { }
 
 
-  apiUrl = 'http://localhost:3000/comanda/';
+  apiUrl = 'http://localhost:8000/comanda/';
 
 
 

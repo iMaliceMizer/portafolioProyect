@@ -9,7 +9,7 @@ export class MeseroService {
 
   constructor(private _http:HttpClient) { }
   //conectar frontend con el backend!
-  apiUrl = 'http://localhost:3000/mesero/';
+  apiUrl = 'http://localhost:8000/staff/';
   //Conseguir datos de todos los meseros
   getAllData():Observable<any>
   {
