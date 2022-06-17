@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./componente-nav-bar.component.scss']
 })
 export class ComponenteNavBarComponent implements OnInit {
+  message = '';
 
-  constructor() { }
+  constructor(private http: HttpClient ) {}
 
   ngOnInit(): void {
+    this.http.get('http://localhost:3000/user')
+      .subscribe( (res) =>{
+        this.message = 'Bienvenido ${res.name}';
+      });
     
     
   }

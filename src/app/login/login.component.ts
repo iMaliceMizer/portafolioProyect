@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../service/user.service';
+import {first} from 'rxjs/operators';
+import { AuthInterceptor } from '../interceptors/auth.interceptor';
+
 
 @Component({
   selector: 'app-login',
@@ -10,28 +14,24 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm!: FormGroup
+  form!: FormGroup;
   constructor(private formBuilder: FormBuilder, private http : HttpClient,
-    private router : Router) { }
+    private router : Router, private userService : UserService) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      usuario:[''],
-      password:['']
+
+    this.form = this.formBuilder.group({
+      username: [],
+      password:[]
     });
-  }
-
-  login(){
-    
-  }
-  
-  userForm = new FormGroup({
-    'email': new FormControl(''),
-  });
-
-  userSubmit()
-    {
-      console.log(this.userForm.value);
     }
-  
+
+    Submit(){
+      this.http.post('http://localhost:3000/user', this.form.getRawValue(), {withCredentials: true})
+        .subscribe( (res:any) =>{
+          AuthInterceptor.accessToken = res.token;
+
+          this.router.navigate(['/']);
+        });
+      }
 }

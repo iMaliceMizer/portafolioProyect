@@ -189,7 +189,43 @@ app.get('/mesero', (req, res) => {
 });
 
 
+//Conseguir todos los datos de los usuarios
+app.get('/user', (req, res) => {
+  let qr = 'select * from user;'
+  db.query(qr, (err, result) => {
+    if (err) {
+      console.log(err, 'errs');
+    }
+    if (result.length > 0) {
+      res.send({
+        message: 'datos de las usuarios',
+        data: result
+      });
+    }
+  });
+});
 
+// Crear usuario
+app.post('/user', (req, res) => {
+  console.log(req.body, 'Añadir usuario');
+
+  let user_id = req.body.user_id;
+  let username = req.body.username;
+  let password = req.body.password;
+  let email = req.body.email
+
+  let qr = `insert into user(username, password, email)
+  values('${username}','${password}','${email}')`;
+
+  console.log(qr, 'qr')
+  db.query(qr, (err, result) => {
+    if (err) { console.log(err) };
+    console.log(result, 'result')
+    res.send({
+      message: 'dato insertado',
+    });
+  });
+});
 
 //servidor corriendo
 app.listen(3000, () => {

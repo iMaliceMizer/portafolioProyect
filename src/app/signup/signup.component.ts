@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -8,20 +11,25 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  public signupForm !: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  form !: FormGroup;
+  constructor(private formBuilder: FormBuilder, private http : HttpClient, private router : Router) { }
 
 
   ngOnInit(): void {
-    this.signupForm = this.formBuilder.group({
-      nombre: [''],
-      apellidos: [''],
-      contrasenia: [''],
-      direccion:[''],
-      comuna:[''],
-      region:[''],
-      comunapostal:['']
+
+    this.form = this.formBuilder.group( {
+      username: [],
+      email: [],
+      password: []
     });
   }
+
+  Submit(){
+    this.http.post('http://localhost:3000/user', this.form.getRawValue())
+      .subscribe( res =>{
+        this.router.navigate(['/login']);
+      });
+  }
+
 
 }

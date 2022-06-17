@@ -3,13 +3,15 @@
     <h1 class="title">Inicia sesión</h1>
     <div class="social-login">
     </div>
-    <form class="inputs-container">
-        <input class="input" type="text" placeholder="Nombre de usuario">
-        <input class="input" type="text" placeholder="Contraseña">
+    <!-- Aqui empieza el campo de ingreso-->
+    <form class="inputs-container" [formGroup]="form">
+        <input formControlName="username" class="input" type="text" placeholder="Nombre de usuario">
+        <input formControlName="password" class="input" type="password" placeholder="Contraseña">
+  
         <br>
         <p>Olvidaste tu contraseña?<span class="span"> Click aqui</span></p>
-        <p>No tienes tus credenciales? <span class="span"> Registrate aqui</span></p>
-        <button class="btn">Inicia sesión</button>
+        <p>No tienes tus credenciales? <span class="span" routerLink="/signup"> Registrate aqui</span></p>
+        <button  routerLink="/" type="submit" class="btn ">Inicia sesión</button>
 
     </form>
   </div>

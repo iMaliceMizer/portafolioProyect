@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AgregarProductosComponent } from '../app/agregar-productos/agregar-productos.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ApiserviceService } from './apiservice.service';
-import { HttpClientModule } from'@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from'@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from '../app/signup/signup.component';
@@ -22,6 +22,8 @@ import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { MenuComponent } from './menu/menu.component';
 import { StaffComponent } from './staff/staff.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+
 
 
 
@@ -58,7 +60,12 @@ import { StaffComponent } from './staff/staff.component';
     RouterModule,
   ],
 
-  providers: [ApiserviceService],
+  providers: [[ApiserviceService],
+  { 
+    provide: HTTP_INTERCEPTORS,
+    useClass : AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
