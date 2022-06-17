@@ -227,7 +227,53 @@ app.post('/user', (req, res) => {
   });
 });
 
+app.get('/productosalcoholicos', (req, res) => {
+  let qr = 'select * from productosalcoholicos';
+  db.query(qr, (err, result) => {
+    if (err) {
+      console.log(err, 'errs');
+    }
+    if (result.length > 0) {
+      res.send({
+        message: 'datos de los productos',
+        data: result
+      });
+    }
+  });
+});
+
+app.get('/productosbebestibles', (req, res) => {
+  let qr = 'select * from productosbebestibles';
+  db.query(qr, (err, result) => {
+    if (err) {
+      console.log(err, 'errs');
+    }
+    if (result.length > 0) {
+      res.send({
+        message: 'datos de los productos',
+        data: result
+      });
+    }
+  });
+});
+
+app.get('/productoscomestibles', (req, res) => {
+  let qr = 'select * from productoscomestibles';
+  db.query(qr, (err, result) => {
+    if (err) {
+      console.log(err, 'errs');
+    }
+    if (result.length > 0) {
+      res.send({
+        message: 'datos de los productos',
+        data: result
+      });
+    }
+  });
+});
+
 //servidor corriendo
 app.listen(3000, () => {
   console.log('server running...');
 });
+

@@ -47,7 +47,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     CartComponent,
     MenuComponent,
     MesasComponent,
-    StaffComponent
+    StaffComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
