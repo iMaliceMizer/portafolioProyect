@@ -23,6 +23,7 @@ import { CartComponent } from './cart/cart.component';
 import { MenuComponent } from './menu/menu.component';
 import { StaffComponent } from './staff/staff.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { PagoComponent } from './pago/pago.component';
 
 
 
@@ -48,7 +49,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MenuComponent,
     MesasComponent,
     StaffComponent,
-    MenuComponent
+    MenuComponent,
+    PagoComponent
   ],
   imports: [
     BrowserModule,

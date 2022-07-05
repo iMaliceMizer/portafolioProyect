@@ -10,17 +10,13 @@ export class menuCService {
 
   constructor(private _http:HttpClient) { }
 
-
-  apiUrl = 'http://localhost:3000/productoscomestibles/';
-
-
+  apiUrl = 'http://localhost:8000/productoscomestibles/';
 
  //conseguir todas las comandas
   getAllData():Observable<any>
   {
         return this._http.get(`${this.apiUrl}`);
   }
-
   // agregar comanda
   addData(data:any):Observable<any>
   {
@@ -35,8 +31,6 @@ export class menuCService {
       let ids = id;
       return this._http.put(`${this.apiUrl}${ids}`,data);
   }
-
-
   //conseguir un solo dato
   getSingleData(id:any):Observable<any>
   {

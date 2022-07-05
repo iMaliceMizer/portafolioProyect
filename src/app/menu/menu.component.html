@@ -1,26 +1,43 @@
-<section class="dishes" id="dishes">
-    <h1 class="title"> Menu de platos </h1>
-<div class="container">
-<div class="box-container">
-
-    
-    <div class="row row-cols-1 row-cols-md-3 g-4" >
-        <div class="col" *ngFor = 'let prod of readprodA'>
-          <div class="card h-100" >
-            <div class="card-body">
-              <h4 class="card-title">{{prod.nombreA}}</h4>
-              <h5>{{prod.valorA}}</h5>
-              <p class="card-text">{{prod.descripcionA}} </p>
-            </div>
-          </div>
-        </div>
+<div class="container mt-5">
+  <br /><br />
 
 
 
+  <div class="card-group">
+    <div class="card">
+      <img src="../../assets/menuicons/food.png" style=" height: 40px; width:30px; margin-top:2rem;" id="hp">
+
+      <h5 class="card-title">Comestible</h5>
 
 
+      <div class="card-body" *ngFor='let menuc of  readprodC'>
+        <p class="card-text">{{ menuc.nombreC }}</p>
+        <p class="card-text">{{ menuc.valorC}}</p>
+        <p class="card-text"><small class="text-muted">{{menuc.descripcionC}}</small></p>
+      </div>
     </div>
+    <div class="card">
+      <img src="../../assets/menuicons/drink.png" style=" height: 40px; width:30px; margin-top:2rem;" id="hp">
 
-    
+      <h5 class="card-title">Bebestible</h5>
+
+      <div class="card-body" *ngFor='let menub of  readprodB'>
+        <h5 class="card-title">{{ menub.nombreB}}</h5>
+        <p class="card-text">${{ menub.valorB}}</p>
+        <p class="card-text"><small class="text-muted">{{menub.descripcionB}}</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="../../assets/menuicons/alcohol.png" style=" height: 40px; width:30px; margin-top:2rem;" id="hp">
+      <h5 class="card-title" style="text-align:start">Alcohol</h5>
+
+      <div class="card-body" *ngFor='let menua of  readprodA'>
+        <h5 class="card-title">{{ menua.nombreA}}</h5>
+        <p class="card-text">{{ menua.valorA}}</p>
+        <p class="card-text"><small class="text-muted">{{menua.descripcionA}}</small></p>
+      </div>
+    </div>
+  </div>
+
 
 </div>

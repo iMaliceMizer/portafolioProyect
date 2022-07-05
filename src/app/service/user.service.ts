@@ -10,7 +10,7 @@ export class UserService {
 
     constructor(private _http:HttpClient, private service: ApiserviceService) { }
  
-    apiUrluser = 'http://localhost:3000/user/';
+    apiUrluser = 'http://localhost:8000/user/';
 
     
   getAllData():Observable<any>

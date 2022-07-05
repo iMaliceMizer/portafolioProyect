@@ -23,10 +23,12 @@ export class MenuComponent implements OnInit {
         console.log(res,"res==>");
         this.readprodA = res.data;
         });
+
         this.menuBservice.getAllData().subscribe((res)=>{
           console.log(res,"res==>");
           this.readprodB = res.data;  
         });
+        
         this.menuCservice.getAllData().subscribe((res)=>{
           console.log(res,"res==>");
           this.readprodC = res.data; 
